@@ -1,0 +1,6 @@
+**pycache**/
+*.pyc
+.env
+vectorstore/
+.vscode/
+.DS_Store
