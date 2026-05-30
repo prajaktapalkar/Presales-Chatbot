@@ -9,18 +9,84 @@ A Retrieval-Augmented Generation (RAG) chatbot built using:
 * Ollama
 * Phi-3 Mini Local LLM
 
-## Features
+---
 
-* Upload company/networking documents
+# Architecture
+
+This solution follows a Retrieval-Augmented Generation (RAG) architecture.
+
+![Architecture Diagram](demo/AI_Presales_Chatbot_Architecture.ppsx)
+
+---
+
+# Project Structure
+
+![Project Structure](screenshots/project-structure-and-code.png.png)
+
+The chatbot consists of:
+
+* PDF document ingestion
+* Text chunking
+* Vector embeddings
+* FAISS vector database
+* Local LLM inference
+* Flask REST API
+
+---
+
+# Vector Database Creation
+
+![Vector Database](screenshots/vector-database-created.png.png)
+
+Documents are converted into embeddings and stored in a FAISS vector database for semantic search.
+
+---
+
+# Flask API Implementation
+
+![Flask API](screenshots/flask_api_code.png.png)
+
+The API exposes a `/chat` endpoint that:
+
+1. Accepts a user query
+2. Retrieves relevant document chunks
+3. Sends context to the LLM
+4. Returns the generated response
+
+---
+
+# Flask Server Running
+
+![Flask Running](screenshots/flask-server-running.png)
+
+The chatbot runs locally using Flask.
+
+---
+
+# Chatbot Response
+
+![Chatbot Response](screenshots/chatbot-response.png.png)
+
+Example query:
+
+"What services do you provide?"
+
+The chatbot retrieves relevant information from the knowledge base and generates a response.
+
+---
+
+# Features
+
+* Retrieval-Augmented Generation (RAG)
 * Semantic document search
 * Local vector database using FAISS
-* Fully local AI inference using Ollama
-* REST API chatbot endpoint
+* Local LLM inference using Ollama
+* REST API endpoint
 * No paid APIs required
 
 ---
 
-## Tech Stack
+# Tech Stack
 
 * Python
 * Flask
@@ -32,40 +98,23 @@ A Retrieval-Augmented Generation (RAG) chatbot built using:
 
 ---
 
-## Project Structure
+# Installation
 
-```text
-presales-chatbot/
-│
-├── app.py
-├── ingest.py
-├── requirements.txt
-├── README.md
-├── docs/
-├── vectorstore/
-└── .env
-```
-
----
-
-## Installation
-
-### Clone repository
+Clone repository:
 
 ```bash
-git clone <your-repo-url>
+git clone <repository-url>
 cd presales-chatbot
 ```
 
-### Install dependencies
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Install Ollama
+Install Ollama:
 
-Download:
 https://ollama.com/download/windows
 
 Run model:
@@ -76,15 +125,15 @@ ollama run phi3:mini
 
 ---
 
-## Create Vector Database
+# Create Vector Database
 
-Place PDFs inside:
+Place PDF files inside:
 
 ```text
-docs/
+data/
 ```
 
-Then run:
+Run:
 
 ```bash
 python ingest.py
@@ -92,13 +141,13 @@ python ingest.py
 
 ---
 
-## Run Chatbot
+# Run Chatbot
 
 ```bash
 python app.py
 ```
 
-Server starts at:
+Application runs at:
 
 ```text
 http://127.0.0.1:5000
@@ -106,7 +155,7 @@ http://127.0.0.1:5000
 
 ---
 
-## Test API
+# Test API
 
 ```powershell
 Invoke-RestMethod -Uri "http://127.0.0.1:5000/chat" -Method POST -Headers @{"Content-Type"="application/json"} -Body '{"message":"What services do you provide?"}'
@@ -114,21 +163,27 @@ Invoke-RestMethod -Uri "http://127.0.0.1:5000/chat" -Method POST -Headers @{"Con
 
 ---
 
-## Example Use Cases
+# Example Use Cases
 
-* Presales support assistant
-* Company knowledge chatbot
-* Networking solutions assistant
-* Internal documentation search
-* Local/offline RAG system
+* Presales Support Assistant
+* Internal Knowledge Base Chatbot
+* Networking Documentation Assistant
+* Product Information Retrieval
+* Local RAG System
 
 ---
 
-## Future Improvements
+# Future Enhancements
 
-* Web frontend UI
-* Streamlit interface
-* Chat history
-* Authentication
-* Docker deployment
-* Multi-document upload
+* Web UI
+* Streamlit Frontend
+* User Authentication
+* Chat History
+* Docker Deployment
+* Multi-document Upload Support
+
+---
+
+# Author
+
+Prajakta Palkar
