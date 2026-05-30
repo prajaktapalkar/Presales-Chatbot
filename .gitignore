@@ -1,6 +1,4 @@
-**pycache**/
-*.pyc
 .env
 vectorstore/
-.vscode/
-.DS_Store
+__pycache__/
+*.pyc
